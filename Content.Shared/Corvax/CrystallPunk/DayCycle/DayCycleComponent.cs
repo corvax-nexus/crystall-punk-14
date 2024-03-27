@@ -12,6 +12,9 @@ public sealed partial class DayCycleComponent : Component
     public List<DayCycleEntry> TimeEntries = new();
 
     [DataField]
+    public bool IsNight = false;
+
+    [DataField]
     public int CurrentTimeEntry = 0;
 
     [DataField]
@@ -35,4 +38,19 @@ public readonly partial record struct DayCycleEntry()
     /// </summary>
     [DataField]
     public TimeSpan Duration { get; init; } = TimeSpan.FromSeconds(60);
+
+    [DataField]
+    public bool IsNight { get; init; } = false;
 }
+
+/// <summary>
+/// Event raised on map entity, wen night is started
+/// </summary>
+[ByRefEvent]
+public readonly record struct DayCycleNightStartedEvent(EntityUid Map);
+
+/// <summary>
+/// Event raised on map entity, wen night is started
+/// </summary>
+[ByRefEvent]
+public readonly record struct DayCycleDayStartedEvent(EntityUid Map);
