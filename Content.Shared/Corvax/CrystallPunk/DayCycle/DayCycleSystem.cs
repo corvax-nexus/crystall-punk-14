@@ -37,14 +37,13 @@ public sealed partial class DayCycleSystem : EntitySystem
 
             var lerpValue = GetLerpValue((float) start.TotalSeconds, (float) end.TotalSeconds, (float) _timing.CurTime.TotalSeconds);
 
-            var nextEntry = (dayCycle.CurrentTimeEntry + 1 == dayCycle.TimeEntries.Count) ? 0 : dayCycle.CurrentTimeEntry + 1;
+            var curEntry = dayCycle.CurrentTimeEntry;
+            var nextEntry = (curEntry + 1 >= dayCycle.TimeEntries.Count) ? 0 : (curEntry + 1);
 
-            var startColor = dayCycle.TimeEntries[dayCycle.CurrentTimeEntry].StartColor;
+            var startColor = dayCycle.TimeEntries[curEntry].StartColor;
             var endColor = dayCycle.TimeEntries[nextEntry].StartColor;
 
-            Color curColor = ColorLerp(startColor, endColor, lerpValue);
-
-            mapLight.AmbientLightColor = curColor;
+            mapLight.AmbientLightColor = ColorLerp(startColor, endColor, lerpValue);
             Dirty(uid, mapLight);
 
             if (_timing.CurTime > dayCycle.EntryEndTime)
