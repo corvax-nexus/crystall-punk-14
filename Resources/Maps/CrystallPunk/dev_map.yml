@@ -394,22 +394,22 @@ entities:
     - type: DayCycle
       timeEntries:
       - startColor: "#754a4a" #Рассвет
-        duration: 60
+        duration: 10
         isNight: false
       - startColor: "#e0ba87" #Полдень
-        duration: 60
+        duration: 10
         isNight: false
       - startColor: "#bfeeff" #Полдень
-        duration: 60
+        duration: 10
         isNight: false
       - startColor: "#385163" #Вечер
-        duration: 60
+        duration: 10
         isNight: true
       - startColor: "#050a0d" #Ночь
-        duration: 60
+        duration: 10
         isNight: true
       - startColor: "#0d0605" #Ночь
-        duration: 60
+        duration: 10
         isNight: false
 - proto: AirAlarm
   entities:
