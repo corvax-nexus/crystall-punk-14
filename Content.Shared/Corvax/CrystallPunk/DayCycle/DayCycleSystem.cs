@@ -43,7 +43,19 @@ public sealed partial class DayCycleSystem : EntitySystem
             if (dayCycle.TimeEntries.Count <= 1) continue;
 
             var curEntry = dayCycle.CurrentTimeEntry;
-            var nextEntry = (curEntry + 1 >= dayCycle.TimeEntries.Count) ? 0 : (curEntry + 1);
+            var nextEntry = dayCycle.CurrentTimeEntry//(curEntry + 1 >= dayCycle.TimeEntries.Count) ? 0 : (curEntry + 1);
+
+            var start = dayCycle.EntryStartTime;
+            var end = dayCycle.EntryEndTime;
+
+            var lerpValue = GetLerpValue((float) start.TotalSeconds, (float) end.TotalSeconds, (float) _timing.CurTime.TotalSeconds);
+
+            var startColor = dayCycle.TimeEntries[curEntry].StartColor;
+            var endColor = dayCycle.TimeEntries[nextEntry].StartColor;
+
+            mapLight.AmbientLightColor = Color.InterpolateBetween(startColor, endColor, lerpValue);
+            Dirty(uid, mapLight);
+
 
             if (_timing.CurTime > dayCycle.EntryEndTime)
             {
@@ -64,17 +76,6 @@ public sealed partial class DayCycleSystem : EntitySystem
                     RaiseLocalEvent(uid, ref ev, true);
                 }
             }
-
-            var start = dayCycle.EntryStartTime;
-            var end = dayCycle.EntryEndTime;
-
-            var lerpValue = GetLerpValue((float) start.TotalSeconds, (float) end.TotalSeconds, (float) _timing.CurTime.TotalSeconds);
-
-            var startColor = dayCycle.TimeEntries[curEntry].StartColor;
-            var endColor = dayCycle.TimeEntries[nextEntry].StartColor;
-
-            mapLight.AmbientLightColor = Color.InterpolateBetween(startColor, endColor, lerpValue);
-            Dirty(uid, mapLight);
         }
     }
 
