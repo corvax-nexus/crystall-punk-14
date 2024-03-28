@@ -26,11 +26,11 @@ public sealed partial class DayCycleSystem : EntitySystem
 
     private void OnMapInitDayCycle(Entity<DayCycleComponent> dayCycle, ref MapInitEvent args)
     {
-        EnsureComp<MapLightComponent>(dayCycle);
-        var currentEntry = dayCycle.Comp.TimeEntries[dayCycle.Comp.CurrentTimeEntry];
-
-        dayCycle.Comp.EntryStartTime = _timing.CurTime;
-        dayCycle.Comp.EntryEndTime = _timing.CurTime + currentEntry.Duration;
+        //EnsureComp<MapLightComponent>(dayCycle);
+        //var currentEntry = dayCycle.Comp.TimeEntries[dayCycle.Comp.CurrentTimeEntry];
+        //
+        //dayCycle.Comp.EntryStartTime = _timing.CurTime;
+        //dayCycle.Comp.EntryEndTime = _timing.CurTime + currentEntry.Duration;
     }
 
     public override void Update(float frameTime)
