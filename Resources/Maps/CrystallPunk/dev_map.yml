@@ -405,10 +405,13 @@ entities:
       - startColor: "#385163" #Вечер
         duration: 10
         isNight: true
-      - startColor: "#050a0d" #Ночь
+      - startColor: "#060d12" #Ночь
         duration: 10
         isNight: true
-      - startColor: "#0d0605" #Ночь
+      - startColor: "#000000" #Ночь
+        duration: 10
+        isNight: true
+      - startColor: "#120906" #Ночь
         duration: 10
         isNight: false
 - proto: AirAlarm
