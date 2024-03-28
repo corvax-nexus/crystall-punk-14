@@ -26,7 +26,7 @@ public sealed partial class DayCycleSystem : EntitySystem
 
     private void OnMapInitDayCycle(Entity<DayCycleComponent> dayCycle, ref MapInitEvent args)
     {
-        var currentEntry = dayCycle.Comp.TimeEntries[dayCycle.Comp.CurrentTimeEntry];
+        var currentEntry = dayCycle.Comp.TimeEntries[0];
         
         dayCycle.Comp.EntryStartTime = _timing.CurTime;
         dayCycle.Comp.EntryEndTime = _timing.CurTime + currentEntry.Duration;
