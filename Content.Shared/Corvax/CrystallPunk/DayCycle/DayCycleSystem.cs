@@ -43,7 +43,7 @@ public sealed partial class DayCycleSystem : EntitySystem
             if (dayCycle.TimeEntries.Count <= 1) continue;
 
             var curEntry = dayCycle.CurrentTimeEntry;
-            var nextEntry = dayCycle.CurrentTimeEntry//(curEntry + 1 >= dayCycle.TimeEntries.Count) ? 0 : (curEntry + 1);
+            var nextEntry = dayCycle.CurrentTimeEntry;//(curEntry + 1 >= dayCycle.TimeEntries.Count) ? 0 : (curEntry + 1);
 
             var start = dayCycle.EntryStartTime;
             var end = dayCycle.EntryEndTime;
