@@ -48,11 +48,11 @@ public readonly partial record struct DayCycleEntry()
 /// <summary>
 /// Event raised on map entity, wen night is started
 /// </summary>
-//[ByRefEvent]
-//public readonly record struct DayCycleNightStartedEvent(EntityUid Map);
+[ByRefEvent]
+public readonly record struct DayCycleNightStartedEvent(EntityUid Map);
 
 /// <summary>
 /// Event raised on map entity, wen night is started
 /// </summary>
-//[ByRefEvent]
-//public readonly record struct DayCycleDayStartedEvent(EntityUid Map);
+[ByRefEvent]
+public readonly record struct DayCycleDayStartedEvent(EntityUid Map);
