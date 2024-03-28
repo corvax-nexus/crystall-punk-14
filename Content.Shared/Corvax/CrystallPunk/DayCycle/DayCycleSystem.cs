@@ -12,17 +12,17 @@ public sealed partial class DayCycleSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DayCycleComponent, MapInitEvent>(OnMapInitDayCycle);
-        SubscribeLocalEvent<DayCycleComponent, DayCycleDayStartedEvent>(OnDayStarted);
-        SubscribeLocalEvent<DayCycleComponent, DayCycleNightStartedEvent>(OnNightStarted);
+        //SubscribeLocalEvent<DayCycleComponent, DayCycleDayStartedEvent>(OnDayStarted);
+        //SubscribeLocalEvent<DayCycleComponent, DayCycleNightStartedEvent>(OnNightStarted);
     }
 
-    private void OnDayStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleDayStartedEvent args)
-    {
-    }
-
-    private void OnNightStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleNightStartedEvent args)
-    {
-    }
+    //private void OnDayStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleDayStartedEvent args)
+    //{
+    //}
+    //
+    //private void OnNightStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleNightStartedEvent args)
+    //{
+    //}
 
     private void OnMapInitDayCycle(Entity<DayCycleComponent> dayCycle, ref MapInitEvent args)
     {
