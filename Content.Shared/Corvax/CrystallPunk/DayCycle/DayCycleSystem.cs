@@ -19,13 +19,15 @@ public sealed partial class DayCycleSystem : EntitySystem
     private void OnDayStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleDayStartedEvent args)
     {
     }
-    
+
     private void OnNightStarted(Entity<DayCycleComponent> dayCycle, ref DayCycleNightStartedEvent args)
     {
     }
 
     private void OnMapInitDayCycle(Entity<DayCycleComponent> dayCycle, ref MapInitEvent args)
     {
+        if (dayCycle.Comp.TimeEntries == null || dayCycle.Comp.TimeEntries.Count == 0) return;
+
         var currentEntry = dayCycle.Comp.TimeEntries[0];
         
         dayCycle.Comp.EntryStartTime = _timing.CurTime;
